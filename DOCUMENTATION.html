@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CivicPulse Nexus – Technical Specification & System Architecture</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: #1e293b;
+      background: #f8fafc;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+    .page-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border: 1px solid #e2e8f0;
+    }
+    .doc-badge {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .lead {
+      font-size: 1.05rem;
+      color: #475569;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 36px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    p, li {
+      font-size: 0.9rem;
+      color: #334155;
+    }
+    ul {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0 24px 0;
+      font-size: 0.82rem;
+    }
+    th, td {
+      padding: 10px 14px;
+      border: 1px solid #cbd5e1;
+      text-align: left;
+    }
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+    }
+    td {
+      color: #334155;
+    }
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      background: #f1f5f9;
+      color: #0284c7;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.82rem;
+    }
+    pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 16px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      overflow-x: auto;
+      margin: 16px 0;
+    }
+    .callout {
+      background: #f0fdf4;
+      border-left: 4px solid #10b981;
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+      font-size: 0.86rem;
+      color: #065f46;
+    }
+    a {
+      color: #0284c7;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .page-container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-container">
+  <div class="doc-badge">Technical Specification & System Architecture</div>
+  <h1>CivicPulse Nexus – Municipal Governance Platform</h1>
+  <p class="lead">
+    Comprehensive engineering report covering municipal system design, role-based access control (RBAC), relational database architecture, real-time telemetry, SLA compliance, and REST API specification.
+  </p>
+
+  <table>
+    <tr>
+      <th>Author / Candidate</th>
+      <td>Sudhir Kumar (GitHub: <a href="https://github.com/sudhirkr2003" target="_blank">sudhirkr2003</a>)</td>
+      <th>GitHub Repository</th>
+      <td><a href="https://github.com/sudhirkr2003/civicpulse-municipal-platform" target="_blank">civicpulse-municipal-platform</a></td>
+    </tr>
+    <tr>
+      <th>Live Frontend</th>
+      <td><a href="https://civicpulse-portal.onrender.com" target="_blank">https://civicpulse-portal.onrender.com</a></td>
+      <th>Live Backend API</th>
+      <td><a href="https://civicpulse-backend-xwsx.onrender.com" target="_blank">https://civicpulse-backend-xwsx.onrender.com</a></td>
+    </tr>
+    <tr>
+      <th>Technology Stack</th>
+      <td>Spring Boot 3.2.5 (Java 17) + React 18 (Vite) + Aiven MySQL 8.4 + Render</td>
+      <th>Submission Date</th>
+      <td>02 October 2026</td>
+    </tr>
+  </table>
+
+  <h2>1. Project Overview</h2>
+  <p>
+    The <strong>CivicPulse Nexus</strong> is an enterprise municipal governance and citizen redressal platform. It coordinates workflows across administrative wards and municipal departments, managing grievance dockets, civil service applications, trade licenses, property tax assessments ($12.4M collection volume), and capital expenditure budgets ($47M allocated).
+  </p>
+  
+  <h3>1.1 Core Highlights</h3>
+  <ul>
+    <li><strong>Public Docket Tracking</strong>: Real-time search by docket ID (<code>GRV-...</code> or <code>SR-...</code>) with live audit status and resolution notes.</li>
+    <li><strong>5 RBAC Portals</strong>: Tailored dashboards for Administrators, Department Supervisors, Compliance Auditors, Field Officers, and Residents.</li>
+    <li><strong>Statutory SLA Enforcement</strong>: MTTR benchmark compliance monitoring (94.0% statutory rate vs 90.0% standard).</li>
+    <li><strong>Dual Theme Architecture</strong>: Primary soft slate-gray light mode with faded municipal watermark and high-contrast dark mode.</li>
+  </ul>
+
+  <h2>2. Tech Stack & Architecture</h2>
+  <table>
+    <tr>
+      <th>Layer</th>
+      <th>Technology</th>
+      <th>Why It Was Chosen</th>
+    </tr>
+    <tr>
+      <td><strong>Backend</strong></td>
+      <td>Spring Boot 3.2.5 (Java 17)</td>
+      <td>Strong typing, declarative transactions (<code>@Transactional</code>), Spring Security 6, HikariCP pool.</td>
+    </tr>
+    <tr>
+      <td><strong>Frontend</strong></td>
+      <td>React 18, Vite 5.4, Vanilla CSS</td>
+      <td>Fast HMR, modular component tree, lightweight production bundle (&lt; 540 KB), zero CSS overhead.</td>
+    </tr>
+    <tr>
+      <td><strong>Database</strong></td>
+      <td>Aiven Managed MySQL 8.4</td>
+      <td>Cloud-hosted relational DB with enforced SSL (<code>sslmode=REQUIRED</code>) and ACID guarantees.</td>
+    </tr>
+    <tr>
+      <td><strong>Security</strong></td>
+      <td>Spring Security 6 + Stateless JWT</td>
+      <td>HMAC-SHA256 signed tokens, BCrypt password hashing, and cookie-based refresh tokens.</td>
+    </tr>
+    <tr>
+      <td><strong>Hosting</strong></td>
+      <td>Render (Web Service + Static Site)</td>
+      <td>Automated Git continuous deployment with <code>/health</code> diagnostic check.</td>
+    </tr>
+  </table>
+
+  <h2>3. Data Models / Relational Schema</h2>
+  <table>
+    <tr>
+      <th>Table</th>
+      <th>Primary Attributes</th>
+      <th>Constraints & Relationships</th>
+    </tr>
+    <tr>
+      <td><code>users</code></td>
+      <td>id, username, email, password, role, full_name, department_id, ward</td>
+      <td>Stores credentials and RBAC roles. Password hashed with BCrypt. Foreign key to <code>departments.id</code>.</td>
+    </tr>
+    <tr>
+      <td><code>departments</code></td>
+      <td>id, name, code, head_name, budget_allocated, budget_spent, sla_target_hours</td>
+      <td>Master registry of city departments (Water, Health, Revenue, Roads, Permits, Education).</td>
+    </tr>
+    <tr>
+      <td><code>grievances</code></td>
+      <td>id, ticket_number, citizen_id, title, category, department_id, ward, status, priority, resolution_notes</td>
+      <td>Grievance complaints. Unique ticket number (<code>GRV-YYYY-XXXX</code>). Status: SUBMITTED &rarr; IN_PROGRESS &rarr; RESOLVED / WITHDRAWN.</td>
+    </tr>
+    <tr>
+      <td><code>service_requests</code></td>
+      <td>id, request_number, citizen_id, service_type, department_id, ward, status, sla_days</td>
+      <td>Municipal service applications (<code>SR-YYYY-XXXX</code>).</td>
+    </tr>
+    <tr>
+      <td><code>budget_allocations</code></td>
+      <td>id, department_id, fiscal_year, allocated_amount, utilized_amount, quarter</td>
+      <td>Treasury allocations and department disbursement tracking.</td>
+    </tr>
+    <tr>
+      <td><code>revenue_transactions</code></td>
+      <td>id, receipt_number, payer_name, source_type, amount, transaction_date</td>
+      <td>Municipal revenue audit log (Property Tax, Licenses, Utility Fees).</td>
+    </tr>
+    <tr>
+      <td><code>compliance_audit_logs</code></td>
+      <td>id, user_id, username, action, details, ip_address, timestamp</td>
+      <td>Immutable audit log capturing all mutations, logins, and status transitions.</td>
+    </tr>
+  </table>
+
+  <h2>4. Role-Based Access Control (RBAC)</h2>
+  <table>
+    <tr>
+      <th>Operational Action</th>
+      <th>MUNICIPAL_ADMIN</th>
+      <th>DEPT_HEAD</th>
+      <th>COMPLIANCE_AUDITOR</th>
+      <th>FIELD_OFFICER</th>
+      <th>CITIZEN</th>
+    </tr>
+    <tr>
+      <td>City-wide Executive Analytics</td>
+      <td>Full Access</td>
+      <td>Dept Scoped</td>
+      <td>Read-Only</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Department Scorecards & SLA</td>
+      <td>All Depts</td>
+      <td>Own Dept</td>
+      <td>Read-Only</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Field Task Queue & Proofs</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Assigned Ward</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Citizen Self-Service & Lodging</td>
+      <td>View All</td>
+      <td>View Dept</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Own Filings Only</td>
+    </tr>
+    <tr>
+      <td>Budget & Revenue Ledger</td>
+      <td>Full ($47M)</td>
+      <td>Dept Quota</td>
+      <td>Audit View</td>
+      <td>No</td>
+      <td>Tax Receipts Only</td>
+    </tr>
+  </table>
+
+  <h2>5. Working Demo Credentials</h2>
+  <table>
+    <tr>
+      <th>Role</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Assigned Scope</th>
+    </tr>
+    <tr>
+      <td><strong>Municipal Admin</strong></td>
+      <td><code>admin</code></td>
+      <td><code>Admin@123</code></td>
+      <td>Super-Admin Cockpit (All departments, $47M budget, $12.4M revenue)</td>
+    </tr>
+    <tr>
+      <td><strong>Department Head (Water)</strong></td>
+      <td><code>water_head</code></td>
+      <td><code>Water@123</code></td>
+      <td>Water Dept Scorecard (94% SLA, leak repair telemetry)</td>
+    </tr>
+    <tr>
+      <td><strong>Compliance Auditor</strong></td>
+      <td><code>auditor</code></td>
+      <td><code>Audit@123</code></td>
+      <td>Read-only Regulatory Audit Console & Data Export</td>
+    </tr>
+    <tr>
+      <td><strong>Field Officer</strong></td>
+      <td><code>officer_ward4</code></td>
+      <td><code>Officer@123</code></td>
+      <td>Ward 4 Task Queue & Resolution Verification</td>
+    </tr>
+    <tr>
+      <td><strong>Citizen (Public)</strong></td>
+      <td><code>citizen_rahul</code></td>
+      <td><code>Citizen@123</code></td>
+      <td>Resident Portal (File complaints, track dockets, pay taxes)</td>
+    </tr>
+  </table>
+
+  <div class="callout">
+    <strong>Live Cloud Deployment Tip:</strong> Render free-tier backend services spin down after inactivity. Allow 30–45 seconds on the first request for the container to wake up.
+  </div>
+
+  <h2>6. Quick Local Setup</h2>
+  <pre><code># Backend (Spring Boot + MySQL)
+cd backend
+mvn clean compile
+mvn spring-boot:run
+
+# Frontend (React + Vite)
+cd frontend
+npm install
+npm run dev -- --port 5173</code></pre>
+
+</div>
+
+</body>
+</html>
