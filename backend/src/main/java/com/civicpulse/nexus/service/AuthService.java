@@ -50,11 +50,11 @@ public class AuthService {
 
     @Transactional
     public UserResponse register(RegisterRequest registerRequest, HttpServletRequest request) {
-        if (userRepository.findByUsername(registerRequest.getUsername()).isPresent()) {
-            throw new IllegalArgumentException("Username is already registered");
+        if (userRepository.findByUsername(registerRequest.getUsername().trim()).isPresent()) {
+            throw new IllegalArgumentException("Username '" + registerRequest.getUsername() + "' is already taken. Please choose a different username.");
         }
-        if (userRepository.findByEmail(registerRequest.getEmail()).isPresent()) {
-            throw new IllegalArgumentException("Email is already registered");
+        if (userRepository.findByEmail(registerRequest.getEmail().trim()).isPresent()) {
+            throw new IllegalArgumentException("Email '" + registerRequest.getEmail() + "' is already registered. Please sign in or use another email.");
         }
 
         String ward = (registerRequest.getWard() != null && !registerRequest.getWard().isBlank()) 
