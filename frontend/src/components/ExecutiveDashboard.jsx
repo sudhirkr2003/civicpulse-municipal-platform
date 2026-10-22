@@ -487,11 +487,11 @@ export const ExecutiveDashboard = () => {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginBottom: '24px' }}>
               {(drillDownData?.departmentDeepDive || []).map((item, i) => (
-                <div key={i} style={{ background: '#0F1E36', border: '1px solid #1E2C4A', borderRadius: '10px', padding: '16px' }}>
-                  <h4 style={{ fontSize: '0.95rem', fontWeight: '700', color: '#10B981', marginBottom: '8px' }}>{item.department}</h4>
-                  <div style={{ fontSize: '0.8rem', color: '#94A3B8', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <div>Staff Allocated: <strong style={{ color: '#F8FAFC' }}>{item.totalStaff}</strong></div>
-                    <div>Budget Efficiency: <strong style={{ color: '#10B981' }}>{item.budgetEfficiency}%</strong></div>
+                <div key={i} style={{ background: 'var(--bg-card-subtle)', border: '1px solid var(--border-card)', borderRadius: '10px', padding: '16px' }}>
+                  <h4 style={{ fontSize: '0.95rem', fontWeight: '700', color: 'var(--accent-emerald)', marginBottom: '8px' }}>{item.department}</h4>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                    <div>Staff Allocated: <strong style={{ color: 'var(--text-primary)' }}>{item.totalStaff}</strong></div>
+                    <div>Budget Efficiency: <strong style={{ color: 'var(--accent-emerald)' }}>{item.budgetEfficiency}%</strong></div>
                   </div>
                 </div>
               ))}

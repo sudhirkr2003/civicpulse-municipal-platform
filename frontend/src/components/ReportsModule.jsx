@@ -135,17 +135,17 @@ export const ReportsModule = () => {
       </div>
 
       <div className="card" style={{ marginBottom: '20px' }}>
-        <h2 style={{ fontSize: '0.88rem', fontWeight: '700', marginBottom: '12px', color: '#F8FAFC' }}>
+        <h2 style={{ fontSize: '0.88rem', fontWeight: '700', marginBottom: '12px', color: 'var(--text-primary)' }}>
           Executive Report Download Center
         </h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '12px' }}>
-          <div style={{ background: '#0F1E36', border: '1px solid #1E2C4A', borderRadius: '8px', padding: '14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ background: 'var(--bg-card-subtle)', border: '1px solid var(--border-card)', borderRadius: '8px', padding: '14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
-              <h3 style={{ fontSize: '0.84rem', fontWeight: '700', color: '#F8FAFC', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <FileText size={15} className="text-emerald-400" />
+              <h3 style={{ fontSize: '0.84rem', fontWeight: '700', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <FileText size={15} style={{ color: 'var(--accent-emerald)' }} />
                 <span>Milestone 4 Executive Governance PDF</span>
               </h3>
-              <p style={{ fontSize: '0.72rem', color: '#94A3B8', marginTop: '3px' }}>
+              <p style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: '3px' }}>
                 Summary of SLA benchmarks, $12.4M revenue telemetry, and CSAT ratings.
               </p>
             </div>
@@ -155,13 +155,13 @@ export const ReportsModule = () => {
             </button>
           </div>
 
-          <div style={{ background: '#0F1E36', border: '1px solid #1E2C4A', borderRadius: '8px', padding: '14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ background: 'var(--bg-card-subtle)', border: '1px solid var(--border-card)', borderRadius: '8px', padding: '14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
-              <h3 style={{ fontSize: '0.84rem', fontWeight: '700', color: '#F8FAFC', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <FileSpreadsheet size={15} className="text-blue-400" />
+              <h3 style={{ fontSize: '0.84rem', fontWeight: '700', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <FileSpreadsheet size={15} style={{ color: 'var(--accent-blue)' }} />
                 <span>Fiscal & Redressal Data Workbook</span>
               </h3>
-              <p style={{ fontSize: '0.72rem', color: '#94A3B8', marginTop: '3px' }}>
+              <p style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', marginTop: '3px' }}>
                 Multi-sheet Excel workbook with department metrics and variance analysis.
               </p>
             </div>
@@ -174,7 +174,7 @@ export const ReportsModule = () => {
       </div>
 
       <div className="card">
-        <h2 style={{ fontSize: '0.88rem', fontWeight: '700', marginBottom: '12px', color: '#F8FAFC' }}>
+        <h2 style={{ fontSize: '0.88rem', fontWeight: '700', marginBottom: '12px', color: 'var(--text-primary)' }}>
           Statutory Compliance & Security Audit Trail
         </h2>
         <div style={{ overflowX: 'auto' }}>
@@ -192,21 +192,21 @@ export const ReportsModule = () => {
             <tbody>
               {(data?.logs || []).map((log) => (
                 <tr key={log.id}>
-                  <td style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: '#94A3B8' }}>
+                  <td style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-secondary)' }}>
                     {log.timestamp?.replace('T', ' ').substring(0, 19)}
                   </td>
-                  <td style={{ fontWeight: '600', color: '#38BDF8' }}>{log.username}</td>
+                  <td style={{ fontWeight: '600', color: 'var(--telemetry-key)' }}>{log.username}</td>
                   <td>
                     <span className="badge-trend primary">
                       {log.actionType}
                     </span>
                   </td>
-                  <td style={{ color: '#F8FAFC' }}>{log.details}</td>
-                  <td style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: '#94A3B8' }}>
+                  <td style={{ color: 'var(--text-primary)' }}>{log.details}</td>
+                  <td style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-secondary)' }}>
                     {log.ipAddress || '127.0.0.1'}
                   </td>
                   <td>
-                    <span style={{ color: '#10B981', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.72rem', fontWeight: '600' }}>
+                    <span style={{ color: 'var(--accent-emerald)', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.72rem', fontWeight: '600' }}>
                       <CheckCircle2 size={12} />
                       Verified
                     </span>
