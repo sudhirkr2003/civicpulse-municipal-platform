@@ -305,21 +305,21 @@ export const CitizenSelfServicePortal = () => {
       <div className="card">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px', flexWrap: 'wrap', gap: '12px' }}>
           <div>
-            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#F8FAFC' }}>
+            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--text-primary)' }}>
               My Requests & Dockets ({filteredItems.length})
             </h2>
-            <p style={{ fontSize: '0.82rem', color: '#94A3B8', marginTop: '2px' }}>
+            <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
               Unified list of all your complaints and service applications. You can cancel pending ones or rate completed ones.
             </p>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-            <div style={{ display: 'flex', gap: '6px', background: '#0A0F1D', padding: '4px', borderRadius: '8px', border: '1px solid #1E2C4A' }}>
+            <div style={{ display: 'flex', gap: '6px', background: 'var(--bg-card-subtle)', padding: '4px', borderRadius: '8px', border: '1px solid var(--border-card)' }}>
               <button
                 onClick={() => setFilterType('ALL')}
                 style={{
                   background: filterType === 'ALL' ? '#10B981' : 'transparent',
-                  color: filterType === 'ALL' ? '#0A0F1D' : '#94A3B8',
+                  color: filterType === 'ALL' ? '#FFFFFF' : 'var(--text-secondary)',
                   fontWeight: filterType === 'ALL' ? '700' : '500',
                   border: 'none',
                   padding: '5px 12px',
@@ -333,8 +333,8 @@ export const CitizenSelfServicePortal = () => {
               <button
                 onClick={() => setFilterType('ACTIVE')}
                 style={{
-                  background: filterType === 'ACTIVE' ? '#3B82F6' : 'transparent',
-                  color: filterType === 'ACTIVE' ? '#F8FAFC' : '#94A3B8',
+                  background: filterType === 'ACTIVE' ? '#2563EB' : 'transparent',
+                  color: filterType === 'ACTIVE' ? '#FFFFFF' : 'var(--text-secondary)',
                   fontWeight: filterType === 'ACTIVE' ? '700' : '500',
                   border: 'none',
                   padding: '5px 12px',
@@ -349,7 +349,7 @@ export const CitizenSelfServicePortal = () => {
                 onClick={() => setFilterType('RESOLVED')}
                 style={{
                   background: filterType === 'RESOLVED' ? '#10B981' : 'transparent',
-                  color: filterType === 'RESOLVED' ? '#0A0F1D' : '#94A3B8',
+                  color: filterType === 'RESOLVED' ? '#FFFFFF' : 'var(--text-secondary)',
                   fontWeight: filterType === 'RESOLVED' ? '700' : '500',
                   border: 'none',
                   padding: '5px 12px',
@@ -363,8 +363,8 @@ export const CitizenSelfServicePortal = () => {
               <button
                 onClick={() => setFilterType('COMPLAINTS')}
                 style={{
-                  background: filterType === 'COMPLAINTS' ? '#EF4444' : 'transparent',
-                  color: filterType === 'COMPLAINTS' ? '#F8FAFC' : '#94A3B8',
+                  background: filterType === 'COMPLAINTS' ? '#DC2626' : 'transparent',
+                  color: filterType === 'COMPLAINTS' ? '#FFFFFF' : 'var(--text-secondary)',
                   fontWeight: filterType === 'COMPLAINTS' ? '700' : '500',
                   border: 'none',
                   padding: '5px 12px',
@@ -449,18 +449,18 @@ export const CitizenSelfServicePortal = () => {
                         </span>
                       </td>
                       <td>
-                        <div style={{ fontWeight: '600', color: '#F8FAFC' }}>{item.title}</div>
-                        <div style={{ fontSize: '0.78rem', color: '#94A3B8', maxWidth: '320px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        <div style={{ fontWeight: '600', color: 'var(--text-primary)' }}>{item.title}</div>
+                        <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', maxWidth: '320px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                           {item.details}
                         </div>
                       </td>
-                      <td style={{ color: '#94A3B8' }}>{item.ward}</td>
+                      <td style={{ color: 'var(--text-secondary)' }}>{item.ward}</td>
                       <td>
                         <span className={`badge-trend ${isResolved ? 'success' : isWithdrawn ? 'danger' : 'primary'}`}>
                           {item.status}
                         </span>
                       </td>
-                      <td style={{ color: '#94A3B8', fontSize: '0.82rem' }}>
+                      <td style={{ color: 'var(--text-secondary)', fontSize: '0.82rem' }}>
                         {item.sla}
                       </td>
                       <td>

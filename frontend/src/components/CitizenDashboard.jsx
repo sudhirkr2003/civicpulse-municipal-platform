@@ -279,35 +279,35 @@ export const CitizenDashboard = () => {
         
         <div className="card" style={{ padding: '14px 16px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-            <h3 style={{ fontSize: '0.95rem', fontWeight: '700', color: '#F8FAFC' }}>
+            <h3 style={{ fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-primary)' }}>
               Active Dockets In-Progress ({inFlightList.length})
             </h3>
-            <Link to="/citizen-tracking" style={{ fontSize: '0.78rem', color: '#06B6D4', fontWeight: '600', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '3px' }}>
+            <Link to="/citizen-tracking" style={{ fontSize: '0.78rem', color: 'var(--accent-cyan)', fontWeight: '600', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '3px' }}>
               <span>View Full Tracker</span>
               <ChevronRight size={13} />
             </Link>
           </div>
 
           {inFlightList.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '18px 12px', color: '#94A3B8' }}>
-              <CheckCircle2 size={26} style={{ color: '#10B981', margin: '0 auto 6px auto' }} />
-              <p style={{ fontSize: '0.82rem', color: '#F8FAFC', fontWeight: '600' }}>All clear! No active dockets in progress.</p>
-              <p style={{ fontSize: '0.72rem', marginTop: '2px' }}>Click "+ Lodge New Complaint" if you spot an issue.</p>
+            <div style={{ textAlign: 'center', padding: '18px 12px', color: 'var(--text-secondary)' }}>
+              <CheckCircle2 size={26} style={{ color: 'var(--accent-emerald)', margin: '0 auto 6px auto' }} />
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-primary)', fontWeight: '600' }}>All clear! No active dockets in progress.</p>
+              <p style={{ fontSize: '0.72rem', marginTop: '2px', color: 'var(--text-muted)' }}>Click "+ Lodge New Complaint" if you spot an issue.</p>
             </div>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {inFlightList.slice(0, 4).map((item, idx) => (
-                <div key={idx} style={{ background: '#0A0F1D', border: '1px solid #1E2C4A', borderRadius: '8px', padding: '8px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div key={idx} style={{ background: 'var(--bg-card-subtle)', border: '1px solid var(--border-card)', borderRadius: '8px', padding: '8px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <span style={{ fontFamily: 'var(--font-mono)', color: '#38BDF8', fontSize: '0.75rem', fontWeight: '700' }}>{item.id}</span>
-                      <span style={{ fontSize: '0.65rem', padding: '1px 5px', borderRadius: '4px', background: item.type === 'Complaint' ? 'rgba(239,68,68,0.15)' : 'rgba(6,182,212,0.15)', color: item.type === 'Complaint' ? '#EF4444' : '#06B6D4' }}>{item.type}</span>
+                      <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--telemetry-key)', fontSize: '0.75rem', fontWeight: '700' }}>{item.id}</span>
+                      <span style={{ fontSize: '0.65rem', padding: '1px 5px', borderRadius: '4px', background: item.type === 'Complaint' ? 'rgba(239,68,68,0.15)' : 'rgba(6,182,212,0.15)', color: item.type === 'Complaint' ? '#DC2626' : '#0284C7', fontWeight: '700' }}>{item.type}</span>
                     </div>
-                    <div style={{ fontSize: '0.8rem', fontWeight: '600', color: '#F8FAFC', marginTop: '2px' }}>{item.title}</div>
+                    <div style={{ fontSize: '0.8rem', fontWeight: '600', color: 'var(--text-primary)', marginTop: '2px' }}>{item.title}</div>
                   </div>
                   <div style={{ textAlign: 'right' }}>
                     <span className="badge-trend primary" style={{ fontSize: '0.68rem', padding: '2px 6px' }}>{item.status}</span>
-                    <div style={{ fontSize: '0.68rem', color: '#94A3B8', marginTop: '2px' }}>{item.time}</div>
+                    <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: '2px' }}>{item.time}</div>
                   </div>
                 </div>
               ))}
@@ -316,34 +316,34 @@ export const CitizenDashboard = () => {
         </div>
 
         <div className="card" style={{ padding: '14px 16px' }}>
-          <h3 style={{ fontSize: '0.95rem', fontWeight: '700', color: '#F8FAFC', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <Bell size={15} style={{ color: '#F59E0B' }} />
+          <h3 style={{ fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <Bell size={15} style={{ color: 'var(--accent-amber)' }} />
             <span>Ward 1 Public Notices & Utility Schedule</span>
           </h3>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.8rem' }}>
-            <div style={{ background: '#0A0F1D', border: '1px solid #1E2C4A', borderRadius: '8px', padding: '8px 12px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', color: '#10B981', fontWeight: '700', fontSize: '0.78rem', marginBottom: '2px' }}>
+            <div style={{ background: 'var(--bg-card-subtle)', border: '1px solid var(--border-card)', borderRadius: '8px', padding: '8px 12px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--accent-emerald)', fontWeight: '700', fontSize: '0.78rem', marginBottom: '2px' }}>
                 <span>🚰 Water Supply Timings</span>
                 <span>06:00 AM - 09:30 AM</span>
               </div>
-              <div style={{ color: '#94A3B8', fontSize: '0.72rem', lineHeight: '1.3' }}>Morning supply active. Pressure normal at 3.2 bar across Central Ward blocks.</div>
+              <div style={{ color: 'var(--text-secondary)', fontSize: '0.72rem', lineHeight: '1.3' }}>Morning supply active. Pressure normal at 3.2 bar across Central Ward blocks.</div>
             </div>
 
-            <div style={{ background: '#0A0F1D', border: '1px solid #1E2C4A', borderRadius: '8px', padding: '8px 12px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', color: '#06B6D4', fontWeight: '700', fontSize: '0.78rem', marginBottom: '2px' }}>
+            <div style={{ background: 'var(--bg-card-subtle)', border: '1px solid var(--border-card)', borderRadius: '8px', padding: '8px 12px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--accent-cyan)', fontWeight: '700', fontSize: '0.78rem', marginBottom: '2px' }}>
                 <span>🚛 Door-to-Door Waste Collection</span>
                 <span>08:00 AM - 11:30 AM</span>
               </div>
-              <div style={{ color: '#94A3B8', fontSize: '0.72rem', lineHeight: '1.3' }}>Daily segregated solid waste collection vehicle en-route Sector 3 & 4.</div>
+              <div style={{ color: 'var(--text-secondary)', fontSize: '0.72rem', lineHeight: '1.3' }}>Daily segregated solid waste collection vehicle en-route Sector 3 & 4.</div>
             </div>
 
-            <div style={{ background: '#0A0F1D', border: '1px solid #1E2C4A', borderRadius: '8px', padding: '8px 12px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', color: '#F59E0B', fontWeight: '700', fontSize: '0.78rem', marginBottom: '2px' }}>
+            <div style={{ background: 'var(--bg-card-subtle)', border: '1px solid var(--border-card)', borderRadius: '8px', padding: '8px 12px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--accent-amber)', fontWeight: '700', fontSize: '0.78rem', marginBottom: '2px' }}>
                 <span>🏥 Free Municipal Health Camp</span>
                 <span>Saturday 10 AM</span>
               </div>
-              <div style={{ color: '#94A3B8', fontSize: '0.72rem', lineHeight: '1.3' }}>Community Center Ward 1: Blood pressure, sugar screening, and vector-borne disease check.</div>
+              <div style={{ color: 'var(--text-secondary)', fontSize: '0.72rem', lineHeight: '1.3' }}>Community Center Ward 1: Blood pressure, sugar screening, and vector-borne disease check.</div>
             </div>
           </div>
         </div>

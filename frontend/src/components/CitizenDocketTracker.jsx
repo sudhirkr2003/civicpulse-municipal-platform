@@ -160,21 +160,21 @@ export const CitizenDocketTracker = () => {
       <div className="card">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px', flexWrap: 'wrap', gap: '12px' }}>
           <div>
-            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#F8FAFC' }}>
+            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--text-primary)' }}>
               Docket Ledger ({filteredItems.length} Total)
             </h2>
-            <p style={{ fontSize: '0.82rem', color: '#94A3B8', marginTop: '2px' }}>
+            <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
               Track turnaround progression, cancel pending requests, or submit resolution star ratings.
             </p>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', width: '100%', maxWidth: '720px' }}>
-            <div style={{ display: 'flex', gap: '4px', background: '#0A0F1D', padding: '4px', borderRadius: '8px', border: '1px solid #1E2C4A', flexWrap: 'wrap', flex: '1 1 auto' }}>
+            <div style={{ display: 'flex', gap: '4px', background: 'var(--bg-card-subtle)', padding: '4px', borderRadius: '8px', border: '1px solid var(--border-card)', flexWrap: 'wrap', flex: '1 1 auto' }}>
               <button
                 onClick={() => setFilterType('ALL')}
                 style={{
                   background: filterType === 'ALL' ? '#10B981' : 'transparent',
-                  color: filterType === 'ALL' ? '#0A0F1D' : '#94A3B8',
+                  color: filterType === 'ALL' ? '#FFFFFF' : 'var(--text-secondary)',
                   fontWeight: filterType === 'ALL' ? '700' : '500',
                   border: 'none',
                   padding: '5px 10px',
@@ -189,8 +189,8 @@ export const CitizenDocketTracker = () => {
               <button
                 onClick={() => setFilterType('ACTIVE')}
                 style={{
-                  background: filterType === 'ACTIVE' ? '#3B82F6' : 'transparent',
-                  color: filterType === 'ACTIVE' ? '#F8FAFC' : '#94A3B8',
+                  background: filterType === 'ACTIVE' ? '#2563EB' : 'transparent',
+                  color: filterType === 'ACTIVE' ? '#FFFFFF' : 'var(--text-secondary)',
                   fontWeight: filterType === 'ACTIVE' ? '700' : '500',
                   border: 'none',
                   padding: '5px 10px',
@@ -206,7 +206,7 @@ export const CitizenDocketTracker = () => {
                 onClick={() => setFilterType('RESOLVED')}
                 style={{
                   background: filterType === 'RESOLVED' ? '#10B981' : 'transparent',
-                  color: filterType === 'RESOLVED' ? '#0A0F1D' : '#94A3B8',
+                  color: filterType === 'RESOLVED' ? '#FFFFFF' : 'var(--text-secondary)',
                   fontWeight: filterType === 'RESOLVED' ? '700' : '500',
                   border: 'none',
                   padding: '5px 10px',
@@ -221,8 +221,8 @@ export const CitizenDocketTracker = () => {
               <button
                 onClick={() => setFilterType('COMPLAINTS')}
                 style={{
-                  background: filterType === 'COMPLAINTS' ? '#EF4444' : 'transparent',
-                  color: filterType === 'COMPLAINTS' ? '#F8FAFC' : '#94A3B8',
+                  background: filterType === 'COMPLAINTS' ? '#DC2626' : 'transparent',
+                  color: filterType === 'COMPLAINTS' ? '#FFFFFF' : 'var(--text-secondary)',
                   fontWeight: filterType === 'COMPLAINTS' ? '700' : '500',
                   border: 'none',
                   padding: '5px 10px',
@@ -309,20 +309,20 @@ export const CitizenDocketTracker = () => {
                         </span>
                       </td>
                       <td style={{ padding: '8px 8px' }}>
-                        <div style={{ fontWeight: '600', color: '#F8FAFC', whiteSpace: 'nowrap', maxWidth: '170px', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '0.82rem' }}>
+                        <div style={{ fontWeight: '600', color: 'var(--text-primary)', whiteSpace: 'nowrap', maxWidth: '170px', overflow: 'hidden', textOverflow: 'ellipsis', fontSize: '0.82rem' }}>
                           {item.title}
                         </div>
-                        <div style={{ fontSize: '0.72rem', color: '#94A3B8', maxWidth: '170px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', maxWidth: '170px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                           {item.details}
                         </div>
                       </td>
-                      <td style={{ color: '#94A3B8', whiteSpace: 'nowrap', fontSize: '0.78rem', padding: '8px 8px' }}>{item.ward}</td>
+                      <td style={{ color: 'var(--text-secondary)', whiteSpace: 'nowrap', fontSize: '0.78rem', padding: '8px 8px' }}>{item.ward}</td>
                       <td style={{ whiteSpace: 'nowrap', padding: '8px 8px' }}>
                         <span className={`badge-trend ${isResolved ? 'success' : isWithdrawn ? 'danger' : 'primary'}`} style={{ fontSize: '0.68rem', padding: '2px 6px' }}>
                           {item.status}
                         </span>
                       </td>
-                      <td style={{ color: '#94A3B8', fontSize: '0.75rem', whiteSpace: 'nowrap', padding: '8px 8px' }}>
+                      <td style={{ color: 'var(--text-secondary)', fontSize: '0.75rem', whiteSpace: 'nowrap', padding: '8px 8px' }}>
                         {item.sla}
                       </td>
                       <td style={{ textAlign: 'right', whiteSpace: 'nowrap', padding: '8px 8px' }}>
