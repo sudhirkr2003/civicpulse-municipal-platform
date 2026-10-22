@@ -1329,3 +1329,127 @@ button, input, select, textarea {
     display: flex !important;
   }
 }
+
+:root:not([data-theme="dark"]),
+html:not([data-theme="dark"]) body,
+body:not([data-theme="dark"]) {
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #475569;
+}
+
+:root:not([data-theme="dark"]) .card,
+html:not([data-theme="dark"]) .card,
+body:not([data-theme="dark"]) .card {
+  color: #0F172A;
+}
+
+:root:not([data-theme="dark"]) .card h1,
+:root:not([data-theme="dark"]) .card h2,
+:root:not([data-theme="dark"]) .card h3,
+:root:not([data-theme="dark"]) .card h4,
+:root:not([data-theme="dark"]) .modal-box h1,
+:root:not([data-theme="dark"]) .modal-box h2,
+:root:not([data-theme="dark"]) .modal-box h3,
+:root:not([data-theme="dark"]) .modal-box h4,
+:root:not([data-theme="dark"]) .summary-value,
+:root:not([data-theme="dark"]) .page-title,
+:root:not([data-theme="dark"]) .action-card-title,
+:root:not([data-theme="dark"]) .governance-panel-title,
+html:not([data-theme="dark"]) .card h1,
+html:not([data-theme="dark"]) .card h2,
+html:not([data-theme="dark"]) .card h3,
+html:not([data-theme="dark"]) .card h4,
+html:not([data-theme="dark"]) .summary-value,
+html:not([data-theme="dark"]) .page-title,
+html:not([data-theme="dark"]) .action-card-title,
+html:not([data-theme="dark"]) .governance-panel-title {
+  color: #0F172A !important;
+}
+
+:root:not([data-theme="dark"]) .card p,
+:root:not([data-theme="dark"]) .page-description,
+:root:not([data-theme="dark"]) .action-card-desc,
+:root:not([data-theme="dark"]) .summary-label,
+:root:not([data-theme="dark"]) .sidebar-role-tag,
+html:not([data-theme="dark"]) .card p,
+html:not([data-theme="dark"]) .page-description,
+html:not([data-theme="dark"]) .action-card-desc,
+html:not([data-theme="dark"]) .summary-label,
+html:not([data-theme="dark"]) .sidebar-role-tag {
+  color: #334155 !important;
+}
+
+:root:not([data-theme="dark"]) .table-custom td,
+html:not([data-theme="dark"]) .table-custom td {
+  color: #1E293B !important;
+}
+
+:root:not([data-theme="dark"]) .table-custom th,
+html:not([data-theme="dark"]) .table-custom th {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+}
+
+:root:not([data-theme="dark"]) [style*="color: #F8FAFC"],
+:root:not([data-theme="dark"]) [style*="color: rgb(248, 250, 252)"],
+:root:not([data-theme="dark"]) [style*="color:#F8FAFC"],
+:root:not([data-theme="dark"]) [style*="color:#f8fafc"],
+html:not([data-theme="dark"]) [style*="color: #F8FAFC"],
+html:not([data-theme="dark"]) [style*="color: rgb(248, 250, 252)"],
+html:not([data-theme="dark"]) [style*="color:#F8FAFC"],
+html:not([data-theme="dark"]) [style*="color:#f8fafc"] {
+  color: #0F172A !important;
+}
+
+:root:not([data-theme="dark"]) [style*="color: #94A3B8"],
+:root:not([data-theme="dark"]) [style*="color: rgb(148, 163, 184)"],
+:root:not([data-theme="dark"]) [style*="color:#94A3B8"],
+:root:not([data-theme="dark"]) [style*="color:#94a3b8"],
+html:not([data-theme="dark"]) [style*="color: #94A3B8"],
+html:not([data-theme="dark"]) [style*="color: rgb(148, 163, 184)"],
+html:not([data-theme="dark"]) [style*="color:#94A3B8"],
+html:not([data-theme="dark"]) [style*="color:#94a3b8"] {
+  color: #475569 !important;
+}
+
+:root:not([data-theme="dark"]) [style*="background: #0A0F1D"],
+:root:not([data-theme="dark"]) [style*="background:#0A0F1D"],
+:root:not([data-theme="dark"]) [style*="background: #0a0f1d"],
+html:not([data-theme="dark"]) [style*="background: #0A0F1D"],
+html:not([data-theme="dark"]) [style*="background:#0A0F1D"],
+html:not([data-theme="dark"]) [style*="background: #0a0f1d"] {
+  background: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+}
+
+:root:not([data-theme="dark"]) [style*="background: #0F1E36"],
+:root:not([data-theme="dark"]) [style*="background:#0F1E36"],
+:root:not([data-theme="dark"]) [style*="background: #0f1e36"],
+html:not([data-theme="dark"]) [style*="background: #0F1E36"],
+html:not([data-theme="dark"]) [style*="background:#0F1E36"],
+html:not([data-theme="dark"]) [style*="background: #0f1e36"] {
+  background: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+}
+
+:root:not([data-theme="dark"]) .citizen-action-card,
+html:not([data-theme="dark"]) .citizen-action-card {
+  background: #FFFFFF !important;
+}
+
+:root:not([data-theme="dark"]) .recharts-default-tooltip,
+html:not([data-theme="dark"]) .recharts-default-tooltip {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.1) !important;
+}
+
+:root:not([data-theme="dark"]) .recharts-tooltip-label,
+:root:not([data-theme="dark"]) .recharts-tooltip-item,
+html:not([data-theme="dark"]) .recharts-tooltip-label,
+html:not([data-theme="dark"]) .recharts-tooltip-item {
+  color: #0F172A !important;
+}
+

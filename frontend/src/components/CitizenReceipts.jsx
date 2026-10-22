@@ -81,7 +81,7 @@ export const CitizenReceipts = () => {
           <div key={rec.id} className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
-                <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', background: 'rgba(6, 182, 212, 0.12)', color: '#06B6D4', padding: '3px 8px', borderRadius: '4px', fontWeight: '700' }}>
+                <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', background: 'rgba(6, 182, 212, 0.12)', color: 'var(--accent-cyan)', padding: '3px 8px', borderRadius: '4px', fontWeight: '700' }}>
                   {rec.id}
                 </span>
                 <span className="badge-trend success" style={{ fontSize: '0.72rem' }}>
@@ -90,25 +90,25 @@ export const CitizenReceipts = () => {
                 </span>
               </div>
 
-              <h3 style={{ fontSize: '1.1rem', fontWeight: '700', color: '#F8FAFC', marginBottom: '6px' }}>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-primary)', marginBottom: '6px' }}>
                 {rec.title}
               </h3>
-              <div style={{ fontSize: '0.82rem', color: '#94A3B8', marginBottom: '14px' }}>
+              <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginBottom: '14px' }}>
                 {rec.issuedBy}
               </div>
 
-              <div style={{ background: '#0A0F1D', padding: '12px', borderRadius: '8px', border: '1px solid #1E2C4A', display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.82rem', color: '#94A3B8', marginBottom: '16px' }}>
+              <div style={{ background: 'var(--bg-card-subtle)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-card)', display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.82rem', color: 'var(--text-secondary)', marginBottom: '16px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span>Amount Paid:</span>
-                  <strong style={{ color: '#10B981' }}>{rec.amount}</strong>
+                  <strong style={{ color: 'var(--accent-emerald)' }}>{rec.amount}</strong>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span>Payment Date:</span>
-                  <span style={{ color: '#F8FAFC' }}>{rec.paymentDate}</span>
+                  <span style={{ color: 'var(--text-primary)', fontWeight: '600' }}>{rec.paymentDate}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span>Txn Ref:</span>
-                  <span style={{ fontFamily: 'var(--font-mono)', color: '#38BDF8', fontSize: '0.75rem' }}>{rec.txnRef}</span>
+                  <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--telemetry-key)', fontSize: '0.75rem', fontWeight: '600' }}>{rec.txnRef}</span>
                 </div>
               </div>
             </div>
@@ -127,48 +127,48 @@ export const CitizenReceipts = () => {
 
       {activeReceipt && (
         <div className="modal-backdrop">
-          <div className="modal-box" style={{ maxWidth: '580px', background: '#0F1E36', border: '2px solid #10B981' }}>
+          <div className="modal-box" style={{ maxWidth: '580px', border: '2px solid var(--accent-emerald)' }}>
             
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #1E2C4A', paddingBottom: '14px', marginBottom: '20px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border-card)', paddingBottom: '14px', marginBottom: '20px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <ShieldCheck size={24} style={{ color: '#10B981' }} />
+                <ShieldCheck size={24} style={{ color: 'var(--accent-emerald)' }} />
                 <div>
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: '#F8FAFC' }}>
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--text-primary)' }}>
                     Official Municipal Receipt
                   </h3>
-                  <div style={{ fontSize: '0.75rem', color: '#94A3B8' }}>CivicPulse Nexus • Digital Governance Authority</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>CivicPulse Nexus • Digital Governance Authority</div>
                 </div>
               </div>
               <button
                 onClick={() => setActiveReceipt(null)}
                 className="input-icon-btn"
-                style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '50%', padding: '6px' }}
+                style={{ background: 'var(--bg-card-subtle)', borderRadius: '50%', padding: '6px' }}
               >
                 <X size={18} />
               </button>
             </div>
 
-            <div style={{ background: '#0A0F1D', border: '1px solid #1E2C4A', borderRadius: '10px', padding: '20px', marginBottom: '20px' }}>
+            <div style={{ background: 'var(--bg-card-subtle)', border: '1px solid var(--border-card)', borderRadius: '10px', padding: '20px', marginBottom: '20px' }}>
               
               <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-                <div style={{ fontSize: '1.1rem', fontWeight: '800', color: '#F8FAFC' }}>{activeReceipt.title}</div>
-                <div style={{ fontSize: '0.8rem', color: '#10B981', fontWeight: '700', marginTop: '2px' }}>{activeReceipt.status}</div>
+                <div style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-primary)' }}>{activeReceipt.title}</div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--accent-emerald)', fontWeight: '700', marginTop: '2px' }}>{activeReceipt.status}</div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', fontSize: '0.82rem', color: '#94A3B8', borderTop: '1px solid #1E2C4A', paddingTop: '12px' }}>
-                <div><strong>Receipt No:</strong> {activeReceipt.id}</div>
-                <div><strong>Txn Reference:</strong> {activeReceipt.txnRef}</div>
-                <div><strong>Taxpayer Name:</strong> {user?.fullName || 'Rahul S.'}</div>
-                <div><strong>Ward Jurisdiction:</strong> {activeReceipt.ward}</div>
-                <div><strong>Payment Date:</strong> {activeReceipt.paymentDate}</div>
-                <div><strong>Payment Mode:</strong> {activeReceipt.paymentMode}</div>
-                <div style={{ gridColumn: 'span 2', background: 'rgba(16, 185, 129, 0.1)', padding: '8px 12px', borderRadius: '6px', color: '#10B981', display: 'flex', justifyContent: 'space-between', marginTop: '6px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', fontSize: '0.82rem', color: 'var(--text-secondary)', borderTop: '1px solid var(--border-card)', paddingTop: '12px' }}>
+                <div><strong>Receipt No:</strong> <span style={{ color: 'var(--text-primary)' }}>{activeReceipt.id}</span></div>
+                <div><strong>Txn Reference:</strong> <span style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>{activeReceipt.txnRef}</span></div>
+                <div><strong>Taxpayer Name:</strong> <span style={{ color: 'var(--text-primary)' }}>{user?.fullName || 'Rahul S.'}</span></div>
+                <div><strong>Ward Jurisdiction:</strong> <span style={{ color: 'var(--text-primary)' }}>{activeReceipt.ward}</span></div>
+                <div><strong>Payment Date:</strong> <span style={{ color: 'var(--text-primary)' }}>{activeReceipt.paymentDate}</span></div>
+                <div><strong>Payment Mode:</strong> <span style={{ color: 'var(--text-primary)' }}>{activeReceipt.paymentMode}</span></div>
+                <div style={{ gridColumn: 'span 2', background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.25)', padding: '8px 12px', borderRadius: '6px', color: 'var(--accent-emerald)', display: 'flex', justifyContent: 'space-between', marginTop: '6px' }}>
                   <span>Total Settlement Amount:</span>
                   <strong style={{ fontSize: '0.95rem' }}>{activeReceipt.amount}</strong>
                 </div>
               </div>
 
-              <div style={{ marginTop: '16px', textAlign: 'center', fontSize: '0.72rem', color: '#64748B' }}>
+              <div style={{ marginTop: '16px', textAlign: 'center', fontSize: '0.72rem', color: 'var(--text-muted)' }}>
                 This is a computer-generated, digitally signed statutory document. No physical signature required.
               </div>
             </div>
